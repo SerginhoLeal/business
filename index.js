@@ -12,8 +12,8 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(
-    'mongodb+srv://negocios:96321@cluster0-hah9i.mongodb.net/bus?retryWrites=true&w=majority',
-    // process.env.MONGO_URL,
+    // 'mongodb+srv://negocios:96321@cluster0-hah9i.mongodb.net/bus?retryWrites=true&w=majority',
+    process.env.MONGO_URL,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
