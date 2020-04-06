@@ -3,31 +3,31 @@ const mongoose = require('mongoose');
 const SearchSchema = new mongoose.Schema({
     empresa:{
         type: String,
-        required: false,
+        required: true,
     },
     vagas:{
         type: String,
-        required: false,
+        required: true,
     },
     funcao:{
         type: String,
-        required: false,
+        required: true,
     },
     desenvolvedor:{
         type: String,
-        required: false,
+        required: true,
     },
     beneficios:{
         type: String,
-        required: false,
+        required: true,
     },
     formacao:{
         type: String,
-        required: false,
+        required: true,
     },
     curriculo:{
         type: String,
-        required: false,
+        required: true,
     },
     data:{
         type: Date,
