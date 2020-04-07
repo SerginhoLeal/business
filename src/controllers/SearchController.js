@@ -8,10 +8,13 @@ module.exports ={
     },
 
     async store(req, res){
-        const {empresa} = req.body;
+        let {_id,empresa} = req.body;
     try{
         if(await Bus.findOne({empresa}))//se encontrar um email o cadastro não será realizado
             return res.status(400).send({error:'Empresa já em uso!'});
+
+        if(await Bus.findOne({_id}))//se encontrar um email o cadastro não será realizado
+            return res.status(400).send({error:'Tente outro'});
 
         const user = await Bus.create(req.body);
 
@@ -22,6 +25,7 @@ module.exports ={
             return res.statusCode(400).send({error:'fail'});
         }
     },
+
     async destroy(req,res){
         await Bus.findByIdAndRemove(req.params.id);
         return res.send();
