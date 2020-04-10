@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Bus = mongoose.model('Search');
+const parseStrings = require('./parseString');
 
 module.exports ={
     async index(req, res){
@@ -8,7 +9,18 @@ module.exports ={
     },
 
     async store(req, res){
-        let {_id,empresa} = req.body;
+        const { _id, 
+            empresa, 
+            vagas, 
+            funcao, 
+            desenvolvedor, 
+            beneficios, 
+            formacao, 
+            curriculo, 
+            latitude, 
+            longitude 
+        } = req.body;
+
     try{
         if(await Bus.findOne({empresa}))//se encontrar um email o cadastro não será realizado
             return res.status(400).send({error:'Empresa já em uso!'});
@@ -16,10 +28,27 @@ module.exports ={
         if(await Bus.findOne({_id}))//se encontrar um email o cadastro não será realizado
             return res.status(400).send({error:'Tente outro'});
 
-        const user = await Bus.create(req.body);
+        const desc = parseStrings(empresa);
 
+        const location = {
+            type: 'Point',
+            coordinates: [longitude, latitude],
+        }
+
+        const user = await Bus.create({ 
+            _id, 
+            empresa: desc,
+            vagas, 
+            funcao, 
+            desenvolvedor, 
+            beneficios, 
+            formacao, 
+            curriculo, 
+            location
+        });
+        
         // user.key = undefined;
-        return res.send({user});
+        return res.send(user);
 
         }catch(err){
             return res.statusCode(400).send({error:'fail'});

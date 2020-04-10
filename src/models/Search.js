@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const PointSchema = require('./PointSchema');
+
 const SearchSchema = new mongoose.Schema({
     _id:{
         type: String,
@@ -7,7 +9,7 @@ const SearchSchema = new mongoose.Schema({
         select:false,
     },
     empresa:{
-        type: String,
+        type: [String],
         required: true,
     },
     vagas:{
@@ -33,6 +35,10 @@ const SearchSchema = new mongoose.Schema({
     curriculo:{
         type: String,
         required: true,
+    },
+    location:{
+        type: PointSchema,
+        index:'2dsphere'
     },
     data:{
         type: Date,
