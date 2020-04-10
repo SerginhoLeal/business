@@ -23,7 +23,7 @@ module.exports = {
             },
         });
 
-        return res.json(sens);
+        return res.json({sens});
     }
 }
 
