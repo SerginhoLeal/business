@@ -12,10 +12,6 @@ const SearchSchema = new mongoose.Schema({
         type: [String],
         required: true,
     },
-    vagas:{
-        type: String,
-        required: true,
-    },
     funcao:{
         type: String,
         required: true,
@@ -25,10 +21,6 @@ const SearchSchema = new mongoose.Schema({
         required: true,
     },
     beneficios:{
-        type: String,
-        required: true,
-    },
-    formacao:{
         type: String,
         required: true,
     },

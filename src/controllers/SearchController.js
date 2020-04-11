@@ -11,11 +11,9 @@ module.exports ={
     async store(req, res){
         const { _id, 
             empresa, 
-            vagas, 
             funcao, 
             desenvolvedor, 
             beneficios, 
-            formacao, 
             curriculo, 
             latitude, 
             longitude 
@@ -38,11 +36,9 @@ module.exports ={
         const user = await Bus.create({ 
             _id, 
             empresa: desc,
-            vagas, 
             funcao, 
             desenvolvedor, 
             beneficios, 
-            formacao, 
             curriculo, 
             location
         });

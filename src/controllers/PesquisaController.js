@@ -4,7 +4,7 @@ const parseStrings = require('./parseString');
 
 module.exports = {
     async index(req, res){
-        const {latitude, longitude, empresa} = req.query;
+        const {empresa} = req.query;
 
         const desc = parseStrings(empresa);
 
