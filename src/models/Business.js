@@ -15,6 +15,10 @@ const BusinessSchema = new mongoose.Schema({
         required: true,
         select:false,
     },
+    curriculo:{
+        type: String,
+        required: false,
+    },
     data:{
         type: Date,
         default:Date.now,
