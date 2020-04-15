@@ -4,15 +4,13 @@ const bcrypt = require('bcryptjs');
 const BusinessSchema = new mongoose.Schema({
     nome:{
         type: String,
-        select:false,
         required: true,
     },
     email:{
         type:String,
         unique:true,
         required:true,
-        lowercase:true,
-        select:false,
+        lowercase:true
     },
     password:{
         type: String,
@@ -21,13 +19,11 @@ const BusinessSchema = new mongoose.Schema({
     },
     curriculo:{
         type: String,
-        select:false,
         required: false,
     },
     data:{
         type: Date,
         default:Date.now,
-        select:false,
     },
 });
 
