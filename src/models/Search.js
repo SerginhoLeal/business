@@ -24,7 +24,11 @@ const SearchSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    curriculo:{
+    wpps:{
+        type: String,
+        required: true,
+    },
+    mai:{
         type: String,
         required: true,
     },
