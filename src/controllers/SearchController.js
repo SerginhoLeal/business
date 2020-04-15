@@ -14,7 +14,8 @@ module.exports ={
             funcao, 
             desenvolvedor, 
             beneficios, 
-            curriculo, 
+            wpps,
+            mai,
             latitude, 
             longitude 
         } = req.body;
@@ -39,7 +40,8 @@ module.exports ={
             funcao, 
             desenvolvedor, 
             beneficios, 
-            curriculo, 
+            wpps,
+            mai, 
             location
         });
         
