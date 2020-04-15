@@ -2,9 +2,12 @@ const express = require('express');
 
 const routes = express.Router();
 
+const authMiddleware = require('./middlewares/auth');
+
 const BusinessController = require('./controllers/BusinessController');
 const SearchController = require('./controllers/SearchController');
 const PesquisarController = require('./controllers/PesquisaController');
+const ProjectController = require('./controllers/ProjectController');
 
 routes.get('/all', BusinessController.index);
 routes.post('/login', BusinessController.login);
@@ -15,5 +18,9 @@ routes.post('/new', SearchController.store);
 routes.delete('/delete/:id', SearchController.destroy);
 
 routes.get('/search', PesquisarController.index);
+
+routes.use(authMiddleware);
+
+routes.get('/project', ProjectController.index);
 
 module.exports = routes;

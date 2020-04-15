@@ -1,9 +1,17 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken')
+const authConfig = require('../Config/auth.json');
 
 const Bus = mongoose.model('Business');
 
-module.exports ={
+function generateToken(params = {}){
+    return jwt.sign(params, authConfig.secret,{
+        expiresIn: 86400,
+    });
+}
+
+module.exports = {
     async index(req, res){
         const business = await Bus.find();
         return res.json(business);
@@ -22,7 +30,10 @@ module.exports ={
         
         user.password = undefined;
 
-        res.send({user});
+        res.send({
+            user,
+            token:generateToken({id: user.id}),
+        });
     },
 
     async store(req, res){
@@ -34,7 +45,12 @@ module.exports ={
         const user = await Bus.create(req.body);
 
         user.password = undefined;
-        return res.send({user});
+
+        res.send({
+            user,
+            token:generateToken({id: user.id}),//repassa para logar automaticamente
+        });
+
         }catch(err){
             return res.statusCode(400).send({error:'fail'});
         }

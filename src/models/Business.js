@@ -7,13 +7,15 @@ const BusinessSchema = new mongoose.Schema({
         required: true,
     },
     email:{
-        type: String,
-        required: true,
+        type:String,
+        unique:true,
+        required:true,
+        lowercase:true
     },
     password:{
         type: String,
-        required: true,
         select:false,
+        required: true,
     },
     curriculo:{
         type: String,
