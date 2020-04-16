@@ -3,10 +3,10 @@ const Bus = mongoose.model('Search');
 const parseStrings = require('./parseString');
 
 module.exports ={
-    // async index(req, res){
-    //     const business = await Bus.find();
-    //     return res.json(business);
-    // },
+    async index(req, res){
+        const business = await Bus.find();
+        return res.json(business);
+    },
 
     async store(req, res){
         const { _id, 

@@ -14,7 +14,7 @@ const ProjectController = require('./controllers/ProjectController');
 routes.post('/login', BusinessController.login);
 routes.post('/register', BusinessController.store);
 
-// routes.get('/view', SearchController.index);
+routes.get('/view', SearchController.index);
 routes.post('/new', SearchController.store);
 routes.delete('/delete/:id', SearchController.destroy);
 
