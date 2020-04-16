@@ -12,11 +12,6 @@ function generateToken(params = {}){
 }
 
 module.exports = {
-    // async index(req, res){
-    //     const business = await Bus.find();
-    //     return res.json(business);
-    // },
-
     async login(req, res){
         const {nome, password} = req.body;
 

@@ -45,7 +45,6 @@ module.exports ={
             location
         });
         
-        // user.key = undefined;
         return res.send(user);
 
         }catch(err){

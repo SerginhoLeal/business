@@ -10,15 +10,14 @@ const PesquisarController = require('./controllers/PesquisaController');
 const ProjectController = require('./controllers/ProjectController');
 
 
-// routes.get('/all', BusinessController.index);
-routes.post('/login', BusinessController.login);
-routes.post('/register', BusinessController.store);
+routes.post('/PwbsOs9YtfLi85clN8Sz', BusinessController.login);
+routes.post('/NRBQlog6f2Pwnqe3adQJ', BusinessController.store);
 
-routes.get('/view', SearchController.index);
-routes.post('/new', SearchController.store);
-routes.delete('/delete/:id', SearchController.destroy);
+routes.get('/8dr7YKjlJ3aXKcnwGJrm', SearchController.index);
+routes.post('/C7Ypo2iFU0OTT7RrH1TR', SearchController.store);
+routes.delete('/tuo5NSqTcZ7fXUKBMtGh/:id', SearchController.destroy);
 
-routes.get('/search', PesquisarController.index);
+routes.get('/kW24SJmbA6surYp5qWPJ', PesquisarController.index);
 
 routes.use(authMiddleware);
 
