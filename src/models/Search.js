@@ -7,12 +7,12 @@ const SearchSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    empresa:{
-        type: [String],
+    nome:{
+        type: String,
         required: true,
     },
-    funcao:{
-        type: String,
+    empresa:{
+        type: [String],
         required: true,
     },
     desenvolvedor:{

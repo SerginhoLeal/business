@@ -47,7 +47,7 @@ module.exports = {
         });
 
         }catch(err){
-            return res.statusCode(400).send({error:'fail'});
+            return res.status(400).send({error:'fail'});
         }
     },
 

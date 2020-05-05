@@ -15,7 +15,22 @@ module.exports = {
         });
 
         return res.json({sens});
+    },
+
+    async index2(req, res){
+        const {nome} = req.query;
+
+        const desc2 = parseStrings(nome);
+
+        const sens = await Sea.find({
+            nome:{
+                $in:desc2,
+            },
+        });
+
+        return res.json({sens});
     }
+    
 }
 
 // {} -> objeto

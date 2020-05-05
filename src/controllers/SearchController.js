@@ -10,8 +10,8 @@ module.exports ={
 
     async store(req, res){
         const { _id, 
+            nome, 
             empresa, 
-            funcao, 
             desenvolvedor, 
             beneficios, 
             wpps,
@@ -29,6 +29,7 @@ module.exports ={
 
         const desc = parseStrings(empresa);
 
+
         const location = {
             type: 'Point',
             coordinates: [longitude, latitude],
@@ -36,8 +37,8 @@ module.exports ={
 
         const user = await Bus.create({ 
             _id, 
+            nome, 
             empresa: desc,
-            funcao, 
             desenvolvedor, 
             beneficios, 
             wpps,
