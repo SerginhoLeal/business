@@ -24,9 +24,6 @@ module.exports ={
         if(await Bus.findOne({empresa}))//se encontrar um email o cadastro não será realizado
             return res.status(400).send({error:'Empresa já em uso!'});
 
-        if(await Bus.findOne({_id}))//se encontrar um email o cadastro não será realizado
-            return res.status(400).send({error:'Tente outro'});
-
         const desc = parseStrings(empresa);
 
 
