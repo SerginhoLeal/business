@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 const PointSchema = require('./PointSchema');
 
 const SearchSchema = new mongoose.Schema({
-    _id:{
-        type: String,
-        required: true,
-    },
     nome:{
         type: String,
         required: true,

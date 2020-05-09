@@ -9,7 +9,7 @@ module.exports ={
     },
 
     async store(req, res){
-        const { _id, 
+        const {
             nome, 
             empresa, 
             desenvolvedor, 
@@ -35,8 +35,7 @@ module.exports ={
             coordinates: [longitude, latitude],
         }
 
-        const user = await Bus.create({ 
-            _id, 
+        const user = await Bus.create({
             nome, 
             empresa: desc,
             desenvolvedor, 
