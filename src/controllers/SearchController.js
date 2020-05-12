@@ -17,7 +17,9 @@ module.exports ={
             wpps,
             mai,
             latitude, 
-            longitude 
+            longitude ,
+            latitudeDelta,
+            longitudeDelta
         } = req.body;
 
     try{
@@ -29,7 +31,7 @@ module.exports ={
 
         const location = {
             type: 'Point',
-            coordinates: [longitude, latitude],
+            coordinates: [longitude, latitude, latitudeDelta, longitudeDelta],
         }
 
         const user = await Bus.create({
