@@ -31,7 +31,7 @@ module.exports = {
                 token:generateToken({id: user.id}),
             });
         }catch(err){
-            return res.status(400).send({error:'Falha no login'});
+            return res.status(400).json({error:'Falha no login'});
         }
 
         
