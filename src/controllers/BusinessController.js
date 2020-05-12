@@ -15,20 +15,26 @@ module.exports = {
     async login(req, res){
         const {nome, password} = req.body;
 
-        const user = await Bus.findOne({nome}).select('+password');
+        try{
+            const user = await Bus.findOne({nome}).select('+password');
         
-        if(!user)
-            return res.status(400).send({error:'Nome inexistente'});
-        
-        if(!await bcrypt.compare(password, user.password))
-            return res.status(400).send({error:'Senha invalida'});
-        
-        user.password = undefined;
+            if(!user)
+                return res.status(400).send({error:'Nome inexistente'});
+            
+            if(!await bcrypt.compare(password, user.password))
+                return res.status(400).send({error:'Senha invalida'});
+            
+            user.password = undefined;
+    
+            res.send({
+                user,
+                token:generateToken({id: user.id}),
+            });
+        }catch(err){
+            return res.status(400).send({error:'Falha no login'});
+        }
 
-        res.send({
-            user,
-            token:generateToken({id: user.id}),
-        });
+        
     },
 
     async store(req, res){
