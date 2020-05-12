@@ -18,8 +18,6 @@ module.exports ={
             mai,
             latitude, 
             longitude ,
-            latitudeDelta,
-            longitudeDelta
         } = req.body;
 
     try{
@@ -31,7 +29,7 @@ module.exports ={
 
         const location = {
             type: 'Point',
-            coordinates: [longitude, latitude, latitudeDelta, longitudeDelta],
+            coordinates: [longitude, latitude],
         }
 
         const user = await Bus.create({
